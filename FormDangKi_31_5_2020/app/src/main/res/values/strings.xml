@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">FormDangKi_31_5_2020</string>
+    <string-array name="nationality">
+        <item>Việt Nam</item>
+        <item>Anh</item>
+        <item>Mỹ</item>
+        <item>Trung Quốc</item>
+        <item>...</item>
+    </string-array>
+</resources>

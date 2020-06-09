@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+   <TextView
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:text="ĐẶT MÓN ĂN"
+       android:textSize="25sp"
+       android:textAlignment="center"
+       android:textColor="#F000"/>
+   <TextView
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:text="Pizza"
+       android:textSize="25sp"
+       android:textAlignment="textStart"
+       android:textColor="#F000"/>
+   <FrameLayout
+       android:background="@android:color/darker_gray"
+       android:layout_width="match_parent"
+       android:layout_height="170dp">
+      <LinearLayout
+          android:layout_marginLeft="15dp"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:orientation="vertical">
+         <CheckBox
+             android:id="@+id/oneCheese"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="Thêm phô mai"
+             android:textSize="20sp"/>
+         <CheckBox
+             android:id="@+id/twoCheese"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="Gấp 2 phô mai"
+             android:textSize="20sp"/>
+         <CheckBox
+             android:id="@+id/threeCheese"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="Gấp 3 phô mai"
+             android:textSize="20sp"/>
+      </LinearLayout>
+
+         <RadioGroup
+             android:layout_gravity="right"
+             android:layout_marginRight="15dp"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content">
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Đế mỏng"
+                android:textSize="20sp"/>
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Đế dày"
+                android:textSize="20sp"/>
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Đế truyền thống"
+                android:textSize="20sp"/>
+         </RadioGroup>
+
+      <LinearLayout
+          android:layout_marginLeft="15dp"
+          android:layout_gravity="bottom|left"
+          android:layout_width="wrap_content"
+          android:layout_height="50dp"
+          android:orientation="vertical">
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="Số lượng"
+             android:textColor="#F000"
+             android:textSize="20sp" />
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:orientation="horizontal">
+            <Button
+                android:id="@+id/buttonGiamPizza"
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:textSize="20sp"
+                android:background="#F00"/>
+            <TextView
+                android:id="@+id/pizzaAmount"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textAlignment="center"
+                android:textColor="#F000"
+                android:text="0"/>
+            <Button
+                android:id="@+id/buttoTangPizza"
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:text="+"
+                android:textSize="20sp"
+                android:background="#03fc07"/>
+         </LinearLayout>
+      </LinearLayout>
+      <RadioGroup
+       android:layout_marginRight="78dp"
+       android:layout_gravity="right|bottom"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:orientation="vertical">
+      <RadioButton
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Đế mỏng"
+          android:textSize="20sp"/>
+      <RadioButton
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Đế dày"
+          android:textSize="20sp"/>
+   </RadioGroup>
+   </FrameLayout>
+
+   <TextView
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:text="Hamburger"
+       android:textSize="25sp"
+       android:textAlignment="textStart"
+       android:textColor="#F000"/>
+   <FrameLayout
+       android:background="@android:color/darker_gray"
+       android:layout_width="match_parent"
+       android:layout_height="120dp">
+      <LinearLayout
+          android:layout_marginLeft="15dp"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:orientation="vertical">
+         <CheckBox
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="Thêm phô mai"
+             android:textSize="20sp"/>
+         <CheckBox
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="Gấp 2 phô mai"
+             android:textSize="20sp"/>
+         <CheckBox
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="Gấp 3 phô mai"
+             android:textSize="20sp"/>
+      </LinearLayout>
+
+      <LinearLayout
+          android:layout_marginRight="15dp"
+          android:layout_gravity="right"
+          android:layout_width="wrap_content"
+          android:layout_height="50dp"
+          android:orientation="vertical">
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="Số lượng"
+             android:textColor="#F000"
+             android:textSize="20sp" />
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:orientation="horizontal">
+            <Button
+                android:id="@+id/buttonGiamHam"
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:textSize="20sp"
+                android:background="#F00"/>
+
+            <TextView
+                android:id="@+id/hamAmount"
+                android:layout_width="40dp"
+                android:layout_height="match_parent"
+                android:text="0"
+                android:textAlignment="center"
+                android:textColor="#F000"
+                android:textSize="20sp" />
+            <Button
+                android:id="@+id/buttonTangHam"
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:text="+"
+                android:textSize="20sp"
+                android:background="#03fc07"/>
+         </LinearLayout>
+      </LinearLayout>
+
+   </FrameLayout>
+
+
+   <LinearLayout
+       android:layout_marginTop="10dp"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:orientation="horizontal">
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:textColor="#F000"
+          android:textSize="25sp"
+          android:text="Mã giảm giá: "/>
+      <EditText
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"/>
+   </LinearLayout>
+   <TextView
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:textAlignment="textEnd"
+       android:textSize="25sp"
+       android:textColor="#F000"
+       android:text="Giảm giá: "/>
+   <TextView
+       android:id="@+id/total"
+       android:layout_marginTop="10dp"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:textAlignment="textEnd"
+       android:textSize="25sp"
+       android:textColor="#F000"
+       android:text="Tổng tiền: "/>
+   <TableLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:stretchColumns="*">
+      <TableRow>
+         <Button
+             android:background="@drawable/border_blue"
+             android:text="Đặt hàng"
+             android:textAllCaps="false"/>
+         <Button
+             android:background="@drawable/border_blue"
+             android:text="Làm lại"
+             android:textAllCaps="false"/>
+      </TableRow>
+   </TableLayout>
+</LinearLayout>

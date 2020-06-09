@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">CurrencyCoverter</string>
+    <string-array name="currency">
+        <item>VNĐ</item>
+        <item>JPY</item>
+        <item>AUD</item>
+        <item>THB</item>
+        <item>USD</item>
+    </string-array>
+
+    <string-array name="currency2">
+        <item>VNĐ</item>
+        <item>JPY</item>
+        <item>AUD</item>
+        <item>THB</item>
+        <item>USD</item>
+    </string-array>
+</resources>

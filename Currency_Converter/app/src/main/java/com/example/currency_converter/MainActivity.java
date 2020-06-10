@@ -3,6 +3,7 @@ package com.example.currency_converter;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -11,6 +12,9 @@ import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
+
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 public class MainActivity extends AppCompatActivity {
     Spinner spinner1, spinner2;
@@ -54,16 +58,20 @@ public class MainActivity extends AppCompatActivity {
                 txtViewInputCurrency.setText(spinner1.getSelectedItem().toString());
                 txtViewOutputCurrency.setText(spinner2.getSelectedItem().toString());
 
-                txtViewOutput.setText(String.valueOf(
-                        converter(editTxtInput.getText().toString(),
-                                spinner1.getSelectedItem().toString(),
-                                spinner2.getSelectedItem().toString())));
+                BigDecimal numberOne = converter(editTxtInput.getText().toString(),
+                        spinner1.getSelectedItem().toString(),
+                        spinner2.getSelectedItem().toString());
+                numberOne = scaleValue(numberOne);
+                txtViewOutput.setText(String.valueOf(numberOne));
 
                 txtView_1.setText(editTxtInput.getText().toString());
-                txtView_2.setText(String.valueOf(
-                        converter(editTxtInput.getText().toString(),
-                                spinner2.getSelectedItem().toString(),
-                                spinner1.getSelectedItem().toString())));
+
+                BigDecimal numberTwo = converter(editTxtInput.getText().toString(),
+                        spinner2.getSelectedItem().toString(),
+                        spinner1.getSelectedItem().toString());
+                numberTwo = scaleValue(numberTwo);
+                txtView_2.setText(String.valueOf(numberTwo));
+
                 txtViewOutput_1.setText(spinner2.getSelectedItem().toString());
                 txtViewInput_1.setText(spinner1.getSelectedItem().toString());
 
@@ -73,37 +81,37 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private double converter(String input, String spinner1, String spinner2) {
+    private BigDecimal converter(String input, String spinner1, String spinner2) {
         double a = Double.parseDouble(input);
 
         if (spinner1.equals("VND (Việt Nam)")) {
             switch (spinner2) {
                 case "USD (Mỹ)":
-                    return a / 23.000;
+                    return new BigDecimal(a / 23000);
                 case "THB (THAILAND BAHT)":
-                    return a / 0.653;
+                    return new BigDecimal(a / 0.653);
                 case "SGD (SINGAPORE DOLLAR)":
-                    return a / 16.284;
+                    return new BigDecimal(a / 16.284);
                 case "YEN (Japan)":
-                    return a / 0.205;
+                    return new BigDecimal(a / 0.205);
                 case "KRW (KOREAN WON)":
-                    return a / 0.167;
+                    return new BigDecimal(a / 0.167);
             }
         } else {
             switch (spinner1) {
                 case "USD (Mỹ)":
-                    return  a * 23.000;
+                    return new BigDecimal (a * 23000);
                 case "THB (THAILAND BAHT)":
-                    return a * 0.653;
+                    return new BigDecimal(a * 0.653);
                 case "SGD (SINGAPORE DOLLAR)":
-                    return a * 16.284;
+                    return new BigDecimal(a * 16.284);
                 case "YEN (Japan)":
-                    return a / 0.205;
+                    return new BigDecimal(a / 0.205);
                 case "KRW (KOREAN WON)":
-                    return a * 0.167;
+                    return new BigDecimal(a * 0.167);
             }
         }
-        return 0;
+        return new BigDecimal(0);
     }
 
     private void initSpinner2() {
@@ -166,5 +174,13 @@ public class MainActivity extends AppCompatActivity {
 
         txtView_1 = (TextView) findViewById(R.id.txtView_1);
         txtView_2 = (TextView) findViewById(R.id.txtView_2);
+    }
+    private BigDecimal scaleValue(BigDecimal bigDecimal)
+    {
+        if(bigDecimal.intValue() >= 10000)
+        {
+            return bigDecimal.setScale(0, RoundingMode.CEILING);
+        }
+        return bigDecimal.setScale(5, RoundingMode.CEILING);
     }
 }

@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Demo1562020</string>
+    <string-array name="loaiXe">
+        <item>Xe du lịch dưới 10 chỗ</item>
+        <item>Xe bán tải</item>
+        <item>Xe tải nhỏ</item>
+    </string-array>
+    <string-array name="bienSo">
+        <item>Lựa chọn thành phố</item>
+        <item>TP.HCM</item>
+        <item>Đồng Nai</item>
+        <item>Bình Dương</item>
+        <item>Long An</item>
+        <item>Vũng Tàu</item>
+    </string-array>
+</resources>

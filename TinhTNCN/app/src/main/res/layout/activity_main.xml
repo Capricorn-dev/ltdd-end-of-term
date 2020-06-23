@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tính thuế TNCN"
+        android:textSize="25sp"
+        android:textAlignment="center"
+        android:textColor="#F000" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Thu nhập trong tháng"
+                android:textSize="20sp"
+                android:textColor="#F000" />
+            <TextView
+                android:layout_marginTop="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Số người phụ thuộc"
+                android:textSize="20sp"
+                android:textColor="#F000" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <EditText
+                android:id="@+id/incomeEditTxt"
+                android:inputType="numberDecimal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:text="20000000"
+                android:textSize="20sp"
+                android:textColor="#F000" />
+            <EditText
+                android:id="@+id/numberPeopleDependEditTxt"
+                android:inputType="numberDecimal"
+                android:layout_marginTop="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:text="2"
+                android:textSize="20sp"
+                android:textColor="#F000" />
+        </LinearLayout>
+    </LinearLayout>
+    <TextView
+
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Thời gian tính thuế"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:textColor="#F000" />
+   <TableLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:stretchColumns="*">
+       <TableRow>
+           <TextView
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:text="Tháng"
+               android:textSize="15sp"
+               android:textAlignment="center"
+               android:textColor="#F000" />
+           <TextView
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:text="Năm"
+               android:textSize="15sp"
+               android:textAlignment="center"
+               android:textColor="#F000" />
+       </TableRow>
+       <TableRow>
+           <Spinner
+               android:id="@+id/monthSpin"
+               android:layout_width="100dp"
+               android:entries="@array/month"/>
+           <EditText
+               android:text="2020"
+               android:inputType="numberDecimal"
+               android:id="@+id/yearEditTxt"/>
+       </TableRow>
+   </TableLayout>
+    <Button
+        android:id="@+id/calculateTaxBtn"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Tính toán"/>
+    <TextView
+    android:layout_marginTop="20dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Thu nhập tính thuế của bạn"
+    android:textStyle="italic"
+    android:textSize="25sp"
+    android:textAlignment="center"
+    android:textColor="@android:color/holo_blue_light" />
+    <TextView
+        android:id="@+id/incomeAfterTaxTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="21.000.000"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:textAlignment="center"
+        android:textColor="#F000" />
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tiền thuế TNCN của bạn là"
+        android:textStyle="italic"
+        android:textSize="25sp"
+        android:textAlignment="center"
+        android:textColor="@android:color/holo_blue_light" />
+    <TextView
+        android:id="@+id/taxTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="1.500.000"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:textAlignment="center"
+        android:textColor="#F000" />
+</LinearLayout>

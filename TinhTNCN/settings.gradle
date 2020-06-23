@@ -1,0 +1,2 @@
+rootProject.name='TinhTNCN'
+include ':app'

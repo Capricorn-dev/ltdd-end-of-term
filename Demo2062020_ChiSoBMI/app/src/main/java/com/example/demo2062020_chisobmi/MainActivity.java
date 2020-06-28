@@ -37,11 +37,11 @@ public class MainActivity extends AppCompatActivity {
         btnTinhToan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (editTxtChieuCao.getText().toString().isEmpty() == true ||
-                        editTxtViewCanNang.getText().toString().isEmpty() == true) {
-                    Toast.makeText(MainActivity.this, "Vui lòng nhập đầy đủ chiều cao và cân nặng",
+                if (editTxtChieuCao.getText().toString().isEmpty() ||
+                        editTxtViewCanNang.getText().toString().isEmpty()) {
+                    Toast.makeText(MainActivity.this, R.string.txtAlert,
                             Toast.LENGTH_SHORT).show();
-                    txtViewNhanXet.setText("Vui lòng nhập đầy đủ chiều cao và cân nặng !");
+                    txtViewNhanXet.setText(R.string.txtAlert);
                     txtViewNhanXet.setTextColor(Color.RED);
                 } else {
                     chieuCao =  Double.parseDouble(editTxtChieuCao.getText().toString()) / 100;
@@ -61,73 +61,74 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public String nhanXetVeBMI(long bmi) {
-        if (rdoBtnNam.isChecked() == true) {
+        if (rdoBtnNam.isChecked()) {
 
             if (bmi == 40.0) {
-                txtViewNhanXet.setText("Bạn có chỉ số BMI rất cao !");
+                txtViewNhanXet.setText(R.string.ad4);
                 txtViewNhanXet.setTextColor(Color.RED);
-                txtViewKetQua.setText("Bạn bị béo phì độ III !");
+                txtViewKetQua.setText(R.string.wei6);
             } else if (bmi >= 30.0 && bmi <= 39.9) {
-                txtViewNhanXet.setText("Bạn có chỉ số BMI khá cao !");
+                txtViewNhanXet.setText(R.string.ad3);
                 txtViewNhanXet.setTextColor(Color.RED);
-                txtViewKetQua.setText("Bạn bị béo phì độ II !");
+                txtViewKetQua.setText(R.string.wei5);
             } else if (bmi >= 25.0 && bmi <= 29.9) {
-                txtViewNhanXet.setText("Bạn có chỉ số BMI cao !");
+                txtViewNhanXet.setText(R.string.ad2);
                 txtViewNhanXet.setTextColor(Color.RED);
-                txtViewKetQua.setText("Bạn bị béo phì độ I !");
+                txtViewKetQua.setText(R.string.wei4);
             } else if (bmi >= 23.0 && bmi <= 24.9) {
-                txtViewNhanXet.setText("Bạn có chỉ số BMI cao !");
+                txtViewNhanXet.setText(R.string.ad2);
                 txtViewNhanXet.setTextColor(Color.RED);
-                txtViewKetQua.setText("Bạn bị tiền béo phì (béo phì) !");
+                txtViewKetQua.setText(R.string.wei3);
             } else if (bmi == 23.0) {
-                txtViewNhanXet.setText("Bạn có chỉ số BMI cao !");
+                txtViewNhanXet.setText(R.string.ad2);
                 txtViewNhanXet.setTextColor(Color.RED);
-                txtViewKetQua.setText("Bạn bị thừa cân, nên vận động !");
+                txtViewKetQua.setText(R.string.wei2);
             } else if (bmi >= 18.5 && bmi <= 22.9) {
-                txtViewNhanXet.setText("Chúc mừng bạn!");
+                txtViewNhanXet.setText(R.string.ad1);
                 txtViewNhanXet.setTextColor(Color.BLUE);
-                txtViewKetQua.setText("Bạn có chỉ số BMI bình thường !");
+                txtViewKetQua.setText(R.string.wei1);
             } else if (bmi <= 18.5) {
-                txtViewNhanXet.setText("Bạn có chỉ số BMI thấp !");
+                txtViewNhanXet.setText(R.string.ad0);
                 txtViewNhanXet.setTextColor(Color.RED);
-                txtViewKetQua.setText("Bạn có cân nặng thấp gầy !");
+                txtViewKetQua.setText(R.string.wei0);
             }
 
-        } else if (rdoBtnNu.isChecked() == true) {
+        } else if (rdoBtnNu.isChecked()) {
             if (bmi == 40.0) {
-                txtViewNhanXet.setText("Cảnh báo !");
+                txtViewNhanXet.setText(R.string.ad5);
                 txtViewNhanXet.setTextColor(Color.RED);
-                txtViewKetQua.setText("Bạn bị béo phì độ III !");
+                txtViewKetQua.setText(R.string.wei6);
             } else if (bmi >= 35.0 && bmi <= 39.9) {
-                txtViewNhanXet.setText("Cảnh báo !");
+                txtViewNhanXet.setText(R.string.ad5);
                 txtViewNhanXet.setTextColor(Color.RED);
-                txtViewKetQua.setText("Bạn bị béo phì độ II !");
+                txtViewKetQua.setText(R.string.wei5);
             } else if (bmi >= 30.0 && bmi <= 34.9) {
-                txtViewNhanXet.setText("Cảnh báo !");
+                txtViewNhanXet.setText(R.string.ad5);
                 txtViewNhanXet.setTextColor(Color.RED);
-                txtViewKetQua.setText("Bạn bị béo phì độ I !");
+                txtViewKetQua.setText(R.string.wei4);
             } else if (bmi >= 25.0 && bmi <= 29.9) {
-                txtViewNhanXet.setText("Cảnh báo !");
+                txtViewNhanXet.setText(R.string.ad5);
                 txtViewNhanXet.setTextColor(Color.RED);
-                txtViewKetQua.setText("Bạn bị tiền béo phì (béo phì) !");
+                txtViewKetQua.setText(R.string.wei3);
             } else if (bmi == 25.0) {
-                txtViewNhanXet.setText("Cảnh báo !");
+                txtViewNhanXet.setText(R.string.ad5);
                 txtViewNhanXet.setTextColor(Color.RED);
-                txtViewKetQua.setText("Bạn bị thừa cân, nên vận động !");
+                txtViewKetQua.setText(R.string.wei2);
             } else if (bmi >= 18.5 && bmi <= 24.9) {
-                txtViewNhanXet.setText("Chúc mừng bạn!");
+                txtViewNhanXet.setText(R.string.wei1);
                 txtViewNhanXet.setTextColor(Color.BLUE);
-                txtViewKetQua.setText("Bạn có chỉ số BMI bình thường !");
+                txtViewKetQua.setText(R.string.wei1);
             } else if (bmi <= 18.5) {
-                txtViewNhanXet.setText("Cảnh báo !");
+                txtViewNhanXet.setText(R.string.ad5);
                 txtViewNhanXet.setTextColor(Color.RED);
-                txtViewKetQua.setText("Bạn có cân nặng thấp gầy !");
+                txtViewKetQua.setText(R.string.wei0);
             }
         }
         return null;
     }
 
     public double tinhBMI(double canNang, double chieuCao) {
+
         bmi = canNang / (chieuCao * chieuCao);
         return bmi;
     }

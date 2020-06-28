@@ -1,3 +1,29 @@
 <resources>
     <string name="app_name">Demo2062020_ChiSoBMI</string>
+    <string name="txtTitle">Chỉ số BMI</string>
+    <string name="txtHig">Chiều cao (cm)</string>
+    <string name="txtWei">Cân nặng (kg)</string>
+    <string name="txtSex">Giới tính</string>
+    <string name="SexM">Nam</string>
+    <string name="SexF">Nữ</string>
+    <string name="sub1">Chỉ số sức khỏe BMI của bạn là</string>
+    <string name="sub2">Nhận xét</string>
+    <string name="temp">(╯°□°）╯︵ ┻━┻</string>
+    <string name="temp2">[]~(￣▽￣)~*</string>
+    <string name="temp3">( •̀ ω •́ )✧</string>
+    <string name="wei0">Bạn có cân nặng thấp gầy !</string>
+    <string name="wei1">Bạn có chỉ số BMI bình thường !</string>
+    <string name="wei2">Bạn bị thừa cân, nên vận động !</string>
+    <string name="wei3">Bạn bị tiền béo phì (béo phì) !</string>
+    <string name="wei4">Bạn bị béo phì độ I !</string>
+    <string name="wei5">Bạn bị béo phì độ II !</string>
+    <string name="wei6">Bạn bị béo phì độ III !</string>
+    <string name="ad0">Bạn có chỉ số BMI thấp !</string>
+    <string name="ad1">Chúc mừng bạn!</string>
+    <string name="ad2">Bạn có chỉ số BMI cao !</string>
+    <string name="ad3">Bạn có chỉ số BMI khá cao !</string>
+    <string name="ad4">Bạn có chỉ số BMI rất cao !</string>
+
+    <string name="ad5">Cảnh báo !</string>
+    <string name="txtAlert">Vui lòng nhập đầy đủ chiều cao và cân nặng !</string>
 </resources>

@@ -7,16 +7,17 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:orientation="vertical"
+    android:background="@color/colorPrimary"
     android:padding="10dp">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="CHỈ SỐ BMI"
-        android:textSize="30dp"
-        android:textStyle="bold"
         android:layout_gravity="center"
-        android:textColor="#000000"/>
+        android:text="@string/txtTitle"
+        android:textColor="@color/WhiteText"
+        android:textSize="30dp"
+         />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -29,18 +30,19 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="4"
-            android:text="Chiều cao (cm)"
+            android:text="@string/txtHig"
+            android:textColor="@color/WhiteText"
             android:textSize="25dp"
-            android:textStyle="bold"
-            android:textColor="#000000"/>
+             />
 
         <EditText
             android:id="@+id/editTxtChieuCao"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="5"
+            android:background="@drawable/et_bg"
             android:inputType="number"
-            android:textColor="#000000"/>
+            android:textColor="#000000" />
 
     </LinearLayout>
 
@@ -54,20 +56,21 @@
         <TextView
             android:id="@+id/txtViewCanNang"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="4"
-            android:text="Cân nặng (kq)"
+            android:text="@string/txtWei"
+            android:textColor="@color/WhiteText"
             android:textSize="25dp"
-            android:textStyle="bold"
-            android:textColor="#000000"/>
+             />
 
         <EditText
             android:id="@+id/editTxtViewCanNang"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="5"
             android:inputType="number"
-            android:textColor="#000000"/>
+            android:textColor="#000000"
+            android:background="@drawable/et_bg"/>
 
     </LinearLayout>
 
@@ -83,10 +86,10 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="4"
-            android:text="Giới tính"
+            android:text="@string/txtSex"
+            android:textColor="@color/WhiteText"
             android:textSize="25dp"
-            android:textStyle="bold"
-            android:textColor="#000000"/>
+            />
 
         <RadioGroup
             android:layout_width="0dp"
@@ -98,19 +101,19 @@
                 android:id="@+id/rdoBtnNam"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nam"
-                android:textColor="#000000"
-                android:textSize="20dp"
-                android:checked="true"/>
+                android:checked="true"
+                android:text="@string/SexM"
+                android:textColor="@color/WhiteText"
+                android:textSize="20dp" />
 
             <RadioButton
                 android:id="@+id/rdoBtnNu"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nữ"
-                android:textColor="#000000"
-                android:textSize="20dp"
-                android:layout_marginLeft="10dp"/>
+                android:layout_marginLeft="10dp"
+                android:text="@string/SexF"
+                android:textColor="@color/WhiteText"
+                android:textSize="20dp" />
 
         </RadioGroup>
 
@@ -120,22 +123,23 @@
         android:id="@+id/btnTinhToan"
         android:layout_width="200dp"
         android:layout_height="50dp"
-        android:text="TÍNH TOÁN"
-        android:textSize="20dp"
-        android:textStyle="bold"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:textColor="#000000"/>
+        android:background="@drawable/gradient_bg"
+        android:text="TÍNH TOÁN"
+        android:textColor="@color/WhiteText"
+        android:textSize="20dp"
+        android:textStyle="bold" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="30dp"
-        android:text="Chỉ số sức khỏe BMI của bạn là"
+        android:text="@string/sub1"
+        android:textColor="@color/WhiteText"
         android:textSize="25dp"
-        android:textStyle="bold|italic"
-        android:textColor="#200955"/>
+         />
 
     <TextView
         android:id="@+id/txtViewSoBMI"
@@ -143,41 +147,40 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
-        android:text="21.5"
-        android:textColor="#000000"
+        android:text="@string/temp"
+        android:textColor="@color/WhiteText"
         android:textSize="25dp"
-        android:textStyle="bold|italic" />
+         />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="30dp"
-        android:text="Nhận xét"
-        android:textColor="#200955"
+        android:text="@string/sub2"
+        android:textColor="@color/WhiteText"
         android:textSize="25dp"
-        android:textStyle="bold|italic" />
+         />
 
     <TextView
         android:id="@+id/txtViewNhanXet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:text="Chúc mừng bạn !"
+        android:layout_marginTop="15dp"
+        android:text="@string/temp2"
+        android:textColor="@color/WhiteText"
         android:textSize="25dp"
-        android:textStyle="bold"
-        android:textColor="#000000"/>
+         />
 
     <TextView
         android:id="@+id/txtViewKetQua"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="5dp"
-        android:text="Bạn có chỉ số BMI bình thường !"
-        android:textSize="25dp"
-        android:textStyle="bold"
-        android:textColor="#000000"/>
+        android:layout_marginTop="15dp"
+        android:text="@string/temp3"
+        android:textColor="@color/WhiteText"
+        android:textSize="25dp" />
 
 </LinearLayout>

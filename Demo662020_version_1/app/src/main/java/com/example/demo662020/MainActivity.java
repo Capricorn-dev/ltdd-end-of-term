@@ -1,9 +1,11 @@
 package com.example.demo662020;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -16,6 +18,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
+    Context context = this;
     CheckBox Pizza_checbox_moreCheese, Pizza_checbox_doubleCheese, Pizza_checbox_trippleCheese;
     RadioButton Pizza_radioBtn_deMong, Pizza_radioBtn_deDay, Pizza_radioBtn_deTruyenThong,
             Pizza_radioBtn_vienPhoMai, Pizza_radioBtn_vienXucXich;
@@ -98,13 +101,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (amount_pizza != 0 || amount_hamburger != 0) {
-//                    Toast.makeText(MainActivity.this,"BẠN CHƯA CHỌN SỐ LƯỢNG !!!", Toast.LENGTH_SHORT).show();
 
                     Intent intent = new Intent(MainActivity.this, SuccessActivity.class);
 
                     startActivity(intent);
                 } else {
-                    Toast.makeText(MainActivity.this,"BẠN CHƯA CHỌN SỐ LƯỢNG !!!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "BẠN CHƯA CHỌN SỐ LƯỢNG !!!", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -156,35 +158,43 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void hamburger_checbox_moreEggs_isChecked() {
-        if (Hamburger_checbox_moreEggs.isChecked() == true) {
-            tongTien += hamburger_moreEggs_price;
-        }
+    private void resetHamCheckBox() {
+        Hamburger_checbox_moreMeat.setChecked(false);
+        Hamburger_checbox_moreEggs.setChecked(false);
+        Hamburger_checbox_moreCheese.setChecked(false);
+
     }
 
-    private void hamburger_checbox_moreCheese_isChecked() {
-        if (Hamburger_checbox_moreCheese.isChecked() == true) {
-            tongTien += hamburger_moreCheese_price;
-        }
+    private void reduceMoneyAfterResetHamCheckBox() {
+        if (Hamburger_checbox_moreMeat.isChecked())
+            tongTien -= hamburger_moreMeat_price;
+        if (Hamburger_checbox_moreEggs.isChecked())
+            tongTien -= hamburger_moreEggs_price;
+        if (Hamburger_checbox_moreCheese.isChecked())
+            tongTien -= hamburger_moreCheese_price;
+        txtViewTongTien.setText(String.valueOf(tongTien));
     }
 
-    private void hamburger_checbox_moreMeat_isChecked() {
-        if (Hamburger_checbox_moreMeat.isChecked() == true) {
-            tongTien += hamburger_moreMeat_price;
-        }
-    }
+    boolean dontExtraMeat = false;
+    boolean dontExtraEggs = false;
+    boolean dontExtraCheese = false;
 
     private void hamburger_checbox_moreEggs_setOnCheckedChangeListener() {
         Hamburger_checbox_moreEggs.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (!Hamburger_txtView_soLuong.getText().equals("0") && isChecked == true) {
-                    tongTien += hamburger_moreEggs_price;
-                    txtViewTongTien.setText(String.valueOf(tongTien));
-                } else if (!Hamburger_txtView_soLuong.getText().equals("0") && isChecked == false) {
-                    tongTien -= hamburger_moreEggs_price;
-                    txtViewTongTien.setText(String.valueOf(tongTien));
+                if (isChecked) {
+                    if (!dontExtraEggs) {
+                        tongTien += hamburger_moreEggs_price;
+                        dontExtraEggs = true;
+                    }
+                } else {
+                    if (dontExtraEggs) {
+                        tongTien -= hamburger_moreEggs_price;
+                        dontExtraEggs = false;
+                    }
                 }
+                txtViewTongTien.setText(String.valueOf(tongTien));
             }
         });
     }
@@ -193,13 +203,18 @@ public class MainActivity extends AppCompatActivity {
         Hamburger_checbox_moreMeat.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (!Hamburger_txtView_soLuong.getText().equals("0") && isChecked == true) {
-                    tongTien += hamburger_moreMeat_price;
-                    txtViewTongTien.setText(String.valueOf(tongTien));
-                } else if (!Hamburger_txtView_soLuong.getText().equals("0") && isChecked == false) {
-                    tongTien -= hamburger_moreMeat_price;
-                    txtViewTongTien.setText(String.valueOf(tongTien));
+                if (isChecked) {
+                    if (!dontExtraMeat) {
+                        tongTien += hamburger_moreMeat_price;
+                        dontExtraMeat = true;
+                    }
+                } else {
+                    if (dontExtraMeat) {
+                        tongTien -= hamburger_moreMeat_price;
+                        dontExtraMeat = false;
+                    }
                 }
+                txtViewTongTien.setText(String.valueOf(tongTien));
             }
         });
     }
@@ -208,13 +223,18 @@ public class MainActivity extends AppCompatActivity {
         Hamburger_checbox_moreCheese.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (!Hamburger_txtView_soLuong.getText().equals("0") && isChecked == true) {
-                    tongTien += hamburger_moreCheese_price;
-                    txtViewTongTien.setText(String.valueOf(tongTien));
-                } else if (!Hamburger_txtView_soLuong.getText().equals("0") && isChecked == false) {
-                    tongTien -= hamburger_moreCheese_price;
-                    txtViewTongTien.setText(String.valueOf(tongTien));
+                if (isChecked) {
+                    if (!dontExtraCheese) {
+                        tongTien += hamburger_moreCheese_price;
+                        dontExtraCheese = true;
+                    }
+                } else {
+                    if (dontExtraCheese) {
+                        tongTien -= hamburger_moreCheese_price;
+                        dontExtraCheese = false;
+                    }
                 }
+                txtViewTongTien.setText(String.valueOf(tongTien));
             }
         });
     }
@@ -322,7 +342,7 @@ public class MainActivity extends AppCompatActivity {
                 if (!Pizza_txtView_soLuong.getText().equals("0") && isChecked == true) {
                     tongTien += pizza_moreCheese_price * 2;
                     txtViewTongTien.setText(String.valueOf(tongTien));
-                } else if (!Pizza_txtView_soLuong.getText().equals("0") &&  isChecked == false) {
+                } else if (!Pizza_txtView_soLuong.getText().equals("0") && isChecked == false) {
                     tongTien -= pizza_moreCheese_price * 2;
                     txtViewTongTien.setText(String.valueOf(tongTien));
                 }
@@ -351,39 +371,38 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (amount_hamburger > 0) {
                     amount_hamburger--;
+                    if (amount_hamburger == 0) {
+                        resetHamCheckBox();
+                        reduceMoneyAfterResetHamCheckBox();
+                    }
                     Hamburger_txtView_soLuong.setText(String.valueOf(amount_hamburger));
 
                     tongTien -= hamburger_price;
                 }
 
-//                tongTienTheoAmountHamburger = hamburger_price * amount_hamburger;
-//                if (tongTien > 0) {
-//                    tongTien -= hamburger_price;
-//                }
-
                 txtViewTongTien.setText(String.valueOf(tongTien));
+                Log.d("amount_hamburger", String.valueOf(amount_hamburger));
             }
         });
 
         Hamburger_btn_tang_mon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                amount_hamburger++;
-                Hamburger_txtView_soLuong.setText(String.valueOf(amount_hamburger));
 
-                tongTienTheoAmountHamburger = hamburger_price * amount_hamburger;
-                tongTien += tongTienTheoAmountHamburger;
 
-                hamburger_checbox_moreEggs_isChecked();
-                hamburger_checbox_moreMeat_isChecked();
-                hamburger_checbox_moreCheese_isChecked();
+                tongTien += hamburger_price;
 
                 txtViewTongTien.setText(String.valueOf(tongTien));
+
+                amount_hamburger++;
+                Hamburger_txtView_soLuong.setText(String.valueOf(amount_hamburger));
+                Log.d("amount_hamburger", String.valueOf(amount_hamburger));
             }
         });
+
     }
 
-    private void pizza_setOnClickListener(){
+    private void pizza_setOnClickListener() {
         Pizza_btn_giam_mon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -116,10 +116,24 @@ public class MainActivity extends AppCompatActivity {
     private BigDecimal calculateDiscount(int peopleDepend, int month, int year) {
         int selfDiscount = 0;
         int peopleDependDiscount = 0;
-        if (month < 7 && year <= 2020) {
+        if (year < 2020) {
             selfDiscount = 9000000;
             peopleDependDiscount = 3600000;
-        } else{
+        }
+        else if(year == 2020)
+        {
+            if(month < 7)
+            {
+                selfDiscount = 9000000;
+                peopleDependDiscount = 3600000;
+            }
+            else
+            {
+                selfDiscount = 11000000;
+                peopleDependDiscount = 4400000;
+            }
+        }
+        else{
             selfDiscount = 11000000;
             peopleDependDiscount = 4400000;
         }

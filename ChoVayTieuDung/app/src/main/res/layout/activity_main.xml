@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:text="VAY TIÊU DÙNG"
+        android:textSize="30sp"
+        android:textColor="#F000"
+        android:textAlignment="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></TextView>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:text="Thu nhập hằng"
+                android:layout_marginTop="10dp"
+                android:textColor="#F000"
+                android:textSize="20sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:text="Chi phí phải trả trong tháng"
+                android:layout_marginTop="10dp"
+                android:textColor="#F000"
+                android:textSize="20sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:text="Số tiền muốn vay"
+                android:layout_marginTop="10dp"
+                android:textColor="#F000"
+                android:textSize="20sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:text="Lãi suất mong muốn"
+                android:layout_marginTop="10dp"
+                android:textColor="#F000"
+                android:textSize="20sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <EditText
+                android:id="@+id/editTextThuNhapHang"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:background="#FFFFFF"
+                android:textSize="20sp"
+                android:textColor="#F000"/>
+            <EditText
+                android:id="@+id/editTextChiPhi"
+                android:layout_marginTop="46dp"
+                android:layout_gravity="top"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:background="#FFFFFF"
+                android:textSize="20sp"
+                android:textColor="#F000"/>
+            <EditText
+                android:id="@+id/editTextSoTien"
+                android:layout_marginTop="12dp"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:background="#FFFFFF"
+                android:textSize="20sp"
+                android:textColor="#F000"/>
+            <Spinner
+                android:id="@+id/spinnerLaiSuat"
+                android:entries="@array/laiSuat"
+                android:layout_marginBottom="22dp"
+                android:layout_gravity="bottom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:textColor="#F000"/>
+        </FrameLayout>
+
+    </LinearLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TableLayout
+            android:layout_marginTop="10dp"
+            android:background="@drawable/border_black"
+            android:padding="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="*">
+                <RadioGroup
+                    android:id="@+id/radioGroup1"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal">
+                    <RadioButton
+                        android:width="120dp"
+                        android:id="@+id/thang12"
+                        android:text="12 tháng"
+                        android:checked="true"
+                        android:textColor="#F000"
+                        android:textSize="15sp"/>
+                    <RadioButton
+                        android:width="120dp"
+                        android:id="@+id/thang30"
+                        android:text="30 tháng"
+                        android:textColor="#F000"
+                        android:textSize="15sp"/>
+                    <RadioButton
+                        android:width="120dp"
+                        android:id="@+id/thang48"
+                        android:text="48 tháng"
+                        android:textColor="#F000"
+                        android:textSize="15sp"/>
+                </RadioGroup>
+
+
+
+        </TableLayout>
+        <TextView
+            android:layout_marginLeft="25dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:text="Thời gian vay"
+            android:textColor="#F000"
+            android:background="@android:color/darker_gray"/>
+    </FrameLayout>
+    <Button
+        android:id="@+id/btTinhToan"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tính toán"/>
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Số tiền phải trả hàng tháng"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textColor="@android:color/holo_blue_dark"/>
+    <TextView
+        android:id="@+id/resualt"
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textColor="#F000"
+        android:text="1.357.000"/>
+</LinearLayout>

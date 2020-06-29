@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Buoi5</string>
+    <string-array name="laiSuat">
+        <item>16%</item>
+        <item>17%</item>
+        <item>18%</item>
+    </string-array>
+</resources>

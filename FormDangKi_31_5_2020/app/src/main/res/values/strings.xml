@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">FormDangKi_31_5_2020</string>
+    <string name="app_name">Đăng kí thành viên</string>
     <string-array name="nationality">
         <item>Việt Nam</item>
         <item>Anh</item>

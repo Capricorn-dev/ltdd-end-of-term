@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void test() {
-        editTxt_Hoten.setText("h");
+        editTxt_Hoten.setText("Ho Hoang Hung Thinh");
         editTxt_Username.setText("s1");
         editTxt_Matkhau.setText("tT@12345");
         editTxt_Ngaysinh.setText("2");

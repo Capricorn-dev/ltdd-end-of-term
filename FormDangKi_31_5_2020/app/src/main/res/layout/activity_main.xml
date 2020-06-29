@@ -80,7 +80,7 @@
             android:id="@+id/editTxt_Matkhau"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:password="false"
+            android:inputType="textPassword"
             android:textColor="#FFFFFF"/>
     </LinearLayout>
     <LinearLayout

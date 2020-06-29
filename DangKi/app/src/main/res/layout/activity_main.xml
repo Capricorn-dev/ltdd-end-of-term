@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#f77c00"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="35dp"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:text="ĐĂNG KÍ"/>
+
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/nameLable"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:textSize="25dp"
+            android:textColor="#FFFFFF"
+            android:text="Họ tên: "/>
+        <EditText
+            android:id="@+id/name"
+            android:layout_marginLeft="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FFFFFF"
+            android:textSize="25dp"
+            android:textColor="#F000"
+            android:hint="Nhập vào họ tên."
+            android:text=""/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/userNameLabel"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:textSize="25dp"
+            android:textColor="#FFFFFF"
+            android:text="Username: "/>
+        <EditText
+            android:id="@+id/username"
+            android:layout_marginLeft="5dp"
+            android:maxLength="128"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:textSize="25dp"
+            android:textColor="#F000"
+            android:hint="Nhập vào Username."
+            android:text=""/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/passwordLabel"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:textSize="25dp"
+            android:textColor="#FFFFFF"
+            android:text="Mật khẩu: "/>
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:background="#FFFFFF"
+            android:hint="Nhập vào mật khẩu."
+            android:password="true"
+            android:text=""
+            android:textColor="#F000"
+            android:textSize="25dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/birthdayLabel"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:textSize="25dp"
+            android:textColor="#FFFFFF"
+            android:text="Ngày sinh: "/>
+        <EditText
+            android:id="@+id/birthday"
+            android:layout_marginLeft="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:textSize="25dp"
+            android:textColor="#F000"
+            android:hint="Nhập vào ngày sinh."
+            android:text=""/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/genderLabel"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:textSize="25dp"
+            android:textColor="#FFFFFF"
+            android:text="Ngày sinh: "/>
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <RadioButton
+                android:id="@+id/male"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#FFFFFF"
+                android:checked="true"
+                android:textSize="25dp"
+                android:text="Nam"/>
+            <RadioButton
+                android:id="@+id/female"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#FFFFFF"
+                android:textSize="25dp"
+                android:text="Nữ"/>
+        </RadioGroup>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/nationalityLable"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:textSize="25dp"
+            android:textColor="#FFFFFF"
+            android:text="Quốc tịch: "/>
+        <Spinner
+            android:id="@+id/chooseNationality"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"/>
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/buttonCreate"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30dp"
+            android:text="Tạo"/>
+    </FrameLayout>
+
+</LinearLayout>

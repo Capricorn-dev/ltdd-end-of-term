@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     TextView txtViewOutput_1, txtViewInput_1;
     TextView txtViewResult;
     TextView txtView_1, txtView_2;
+    TextView txtViewTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -174,6 +175,8 @@ public class MainActivity extends AppCompatActivity {
 
         txtView_1 = (TextView) findViewById(R.id.txtView_1);
         txtView_2 = (TextView) findViewById(R.id.txtView_2);
+
+        txtViewTitle = (TextView) findViewById(R.id.txtViewTitle);
     }
     private BigDecimal scaleValue(BigDecimal bigDecimal)
     {

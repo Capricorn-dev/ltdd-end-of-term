@@ -77,19 +77,19 @@ public class MainActivity extends AppCompatActivity {
         double tienThuNhapTrongThang = thuNhapTinhThue;
 
         if (tienThuNhapTrongThang <= 5000000) {
-            tienThueTNCN = tienThuNhapTrongThang * (5 / 100);
+            tienThueTNCN = tienThuNhapTrongThang * 0.05;
         } else if (tienThuNhapTrongThang > 5000000 && tienThuNhapTrongThang <= 10000000) {
-            tienThueTNCN = tienThuNhapTrongThang * (10 / 100) - 250000;
+            tienThueTNCN = tienThuNhapTrongThang * 0.1 - 250000;
         } else if (tienThuNhapTrongThang > 10000000 && tienThuNhapTrongThang <= 18000000) {
-            tienThueTNCN = tienThuNhapTrongThang * (15 / 100) - 250000;
+            tienThueTNCN = tienThuNhapTrongThang * 0.15 - 750000;
         } else if (tienThuNhapTrongThang > 18000000 && tienThuNhapTrongThang <= 32000000) {
-            tienThueTNCN = tienThuNhapTrongThang * (20 / 100) - 1650000;
+            tienThueTNCN = tienThuNhapTrongThang * 0.2 - 1650000;
         } else if (tienThuNhapTrongThang > 32000000 && tienThuNhapTrongThang <= 52000000) {
-            tienThueTNCN = tienThuNhapTrongThang * (25 / 100) - 3250000;
+            tienThueTNCN = tienThuNhapTrongThang * 0.25 - 3250000;
         } else if (tienThuNhapTrongThang > 52000000 && tienThuNhapTrongThang <= 8000000) {
-            tienThueTNCN = tienThuNhapTrongThang * (30 / 100) - 5850000;
+            tienThueTNCN = tienThuNhapTrongThang * 0.3 - 58500000;
         } else if (tienThuNhapTrongThang > 8000000) {
-            tienThueTNCN = tienThuNhapTrongThang * (35 / 100) - 9850000;
+            tienThueTNCN = tienThuNhapTrongThang * 0.35 - 9850000;
         }
 
         return tienThueTNCN;

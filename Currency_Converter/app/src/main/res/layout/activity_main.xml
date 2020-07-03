@@ -11,6 +11,7 @@
     android:background="#230A5C">
 
     <TextView
+        android:id="@+id/txtViewTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Currency Converter:"
@@ -27,7 +28,8 @@
         android:padding="5dp"
         android:text="23000"
         android:textSize="40dp"
-        android:textColor="#000000"/>
+        android:textColor="#000000"
+        android:inputType="numberDecimal"/>
 
     <LinearLayout
         android:layout_width="wrap_content"

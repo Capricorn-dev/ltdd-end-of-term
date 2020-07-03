@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Demo1562020</string>
     <string-array name="loaiXe">
+        <item>Lựa chọn loại xe</item>
         <item>Xe du lịch dưới 10 chỗ</item>
         <item>Xe bán tải</item>
         <item>Xe tải nhỏ</item>

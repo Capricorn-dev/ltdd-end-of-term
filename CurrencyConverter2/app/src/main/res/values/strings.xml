@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Currency-Converter-2</string>
+    <string-array name="curency">
+        <item>USD (Mỹ)</item>
+        <item>THB (THAILAND BAHT)</item>
+        <item>SGD (SINGAPORE DOLLAR)</item>
+        <item>YEN (Japan)</item>
+        <item>KRW (KOREAN WON)</item>
+    </string-array>
+    <string-array name="curency1">
+        <item>VND (Việt Nam)</item>
+    </string-array>
+</resources>

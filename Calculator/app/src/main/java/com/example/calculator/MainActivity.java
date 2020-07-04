@@ -1,9 +1,12 @@
 package com.example.calculator;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -30,6 +33,9 @@ public class MainActivity extends AppCompatActivity {
     Button division;
     Button equal;
     Button square;
+    Button percent;
+    Button remove;
+    Button close;
     Context context = this;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +63,9 @@ public class MainActivity extends AppCompatActivity {
         division = (Button) findViewById(R.id.division);
         equal = (Button) findViewById(R.id.equal);
         square = (Button) findViewById(R.id.square);
+        percent = (Button) findViewById(R.id.percent);
+        remove = (Button) findViewById(R.id.remove);
+        close = (Button) findViewById(R.id.close);
         //Handle Number
         handleNumberButton();
         handleCalculatedButton();
@@ -176,7 +185,7 @@ public class MainActivity extends AppCompatActivity {
                {
                    isValue1OrValue2();
                    showNumber.setText(String.valueOf(calculation(calculated, value1, value2)));
-                   value1 = calculation(calculated, value1, value2);
+                   numberString = String.valueOf(calculation(calculated, value1, value2));
                }
             }
         });
@@ -187,6 +196,27 @@ public class MainActivity extends AppCompatActivity {
                 value1 = squareCalculated(value1);
                 numberString = String.valueOf(value1);
                 showNumber.setText(numberString);
+            }
+        });
+        percent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                isValue1OrValue2();
+                value1 = value1 / 100;
+                numberString = String.valueOf(value1);
+                showNumber.setText(numberString);
+            }
+        });
+        remove.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                removeNumber();
+            }
+        });
+        close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showAlertDialog();
             }
         });
     }
@@ -226,10 +256,44 @@ public class MainActivity extends AppCompatActivity {
             if(numberString != "")
             {
                 value2 = Float.parseFloat(numberString);
+                isValue1 = true;
                 numberString = "";
                 showNumber.setText("");
             }
         }
+        Log.d("isValue1", String.valueOf(isValue1));
     }
+    private void removeNumber()
+    {
+        if(!numberString.isEmpty())
+        {
+            numberString = numberString.substring(0, numberString.length() - 1);
+            showNumber.setText(numberString);
+        }
+
+    }
+    public void showAlertDialog(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Tắt ứng dụng.");
+        builder.setMessage("Bạn có chắc chắn muốn tắt không?");
+        builder.setCancelable(false);
+        builder.setPositiveButton("Xác nhận", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                finish();
+                System.exit(0);
+            }
+        });
+        builder.setNegativeButton("Hủy bỏ", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.cancel();
+            }
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+
+    }
+
 }
 

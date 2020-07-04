@@ -127,10 +127,10 @@
             <TableRow
                 android:layout_weight="1">
                 <Button
-                    android:id="@+id/delete"
+                    android:id="@+id/close"
                     android:layout_height="match_parent"
                     android:textSize="20dp"
-                    android:text="delete"/>
+                    android:text="close"/>
                 <Button
                     android:id="@+id/zero"
                     android:layout_height="match_parent"

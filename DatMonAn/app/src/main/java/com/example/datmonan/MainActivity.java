@@ -7,69 +7,85 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.Switch;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
     //Các biến dùng chung
     private TextView total;
-    private Button buttonGiamPizza;
-    private Button buttoTangPizza;
+    private Button buttonGiamBanhMi;
+    private Button buttonTangBanhMi;
     private Button buttonGiamHam;
     private Button buttonTangHam;
-    private TextView pizzaAmount;
+    private TextView banhMiAmount;
     private TextView hamAmount;
-    private CheckBox oneCheese;
-    private CheckBox twoCheese;
-    private CheckBox threeCheese;
+    private RadioButton omeletteBreadRBtn;
+    private RadioButton cheeseBreadRBtn;
+    private RadioButton fishBallBreadRBtn;
+    private RadioGroup banhMiRGroup;
+    private CheckBox Hamburger_checkbox_moreCheese;
+    private CheckBox Hamburger_checkbox_moreEggs;
+    private CheckBox Hamburger_checkbox_moreMeat;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //Ánh xạ
         total = findViewById(R.id.total);
-        buttonGiamPizza = findViewById(R.id.buttonGiamPizza);
-        buttoTangPizza = findViewById(R.id.buttoTangPizza);
+        buttonGiamBanhMi = findViewById(R.id.buttonGiamBanhMi);
+        buttonTangBanhMi = findViewById(R.id.buttonTangBanhMi);
         buttonGiamHam = findViewById(R.id.buttonGiamHam);
         buttonTangHam = findViewById(R.id.buttonTangHam);
-        pizzaAmount = findViewById(R.id.pizzaAmount);
+        banhMiAmount = findViewById(R.id.banhMiAmount);
         hamAmount = findViewById(R.id.hamAmount);
-        oneCheese = findViewById(R.id.oneCheese);
-        twoCheese = findViewById(R.id.twoCheese);
-        threeCheese = findViewById(R.id.threeCheese);
-        //Pizza
-        buttonGiamPizza.setOnClickListener(new View.OnClickListener() {
+        banhMiRGroup = findViewById(R.id.banhMiRGroup);
+        total = findViewById(R.id.total);
+        Hamburger_checkbox_moreCheese = findViewById(R.id.Hamburger_checkbox_moreCheese);
+        Hamburger_checkbox_moreEggs = findViewById(R.id.Hamburger_checkbox_moreEggs);
+        Hamburger_checkbox_moreMeat = findViewById(R.id.Hamburger_checkbox_moreMeat);
+        //Bánh mì
+        buttonGiamBanhMi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int value = Integer.parseInt(pizzaAmount.getText().toString());
+                int value = Integer.parseInt(banhMiAmount.getText().toString());
                 if(value > 0)
                 {
                     value--;
-                    pizzaAmount.setText(String.valueOf(value));
+                    banhMiAmount.setText(String.valueOf(value));
+                    total.setText(String.valueOf(value * checkRButtonAndReturnBanhMiPrice(banhMiRGroup)));
                 }
             }
         });
-        buttoTangPizza.setOnClickListener(new View.OnClickListener() {
+        buttonTangBanhMi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int value = Integer.parseInt(pizzaAmount.getText().toString());
+                int value = Integer.parseInt(banhMiAmount.getText().toString());
                 value++;
-                pizzaAmount.setText(String.valueOf(value));
+                banhMiAmount.setText(String.valueOf(value));
+                total.setText(String.valueOf(value * checkRButtonAndReturnBanhMiPrice(banhMiRGroup)));
             }
         });
-        final int pizzaPrice = 125;
-        oneCheese.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        banhMiRGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(oneCheese.isChecked())
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                double amount = Double.parseDouble(banhMiAmount.getText().toString());
+                switch(checkedId)
                 {
-                    total.setText(String.valueOf(pizzaPrice));
+                    case R.id.omeletteBreadRBtn:
+                        total.setText(String.format("%1$,.0f", amount * 25000));
+                        break;
+                    case R.id.cheeseBreadRBtn:
+                        total.setText(String.format("%1$,.0f", amount * 50000));
+                        break;
+                    case R.id.fishBallBreadRBtn:
+                        total.setText(String.format("%1$,.0f", amount * 30000));
+                        break;
                 }
             }
         });
-        pizzaClicked(twoCheese, 2);
-        pizzaClicked(threeCheese, 3);
-
         //Ham
         buttonGiamHam.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,7 +94,13 @@ public class MainActivity extends AppCompatActivity {
                 if(value > 0)
                 {
                     value--;
+                    if(value == 0)
+                    {
+                        resetHamCheckBox();
+                        reduceMoneyAfterResetHamCheckBox();
+                    }
                     hamAmount.setText(String.valueOf(value));
+                    total.setText(String.format("%1$,.0f", hamPrice * value));
                 }
             }
         });
@@ -88,22 +110,164 @@ public class MainActivity extends AppCompatActivity {
                 int value = Integer.parseInt(hamAmount.getText().toString());
                 value++;
                 hamAmount.setText(String.valueOf(value));
+                total.setText(String.format("%1$,.0f", hamPrice * value));
+            }
+        });
+
+        Hamburger_checkbox_moreEggs.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    if (!dontExtraEggs) {
+                        hamTotal += hamburger_moreEggs_price;
+                        dontExtraEggs = true;
+                    }
+                } else {
+                    if (dontExtraEggs) {
+                        hamTotal -= hamburger_moreEggs_price;
+                        dontExtraEggs = false;
+                    }
+                }
+                total.setText(String.valueOf(hamTotal));
+            }
+        });
+
+        Hamburger_checkbox_moreMeat.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    if (!dontExtraMeat) {
+                        hamTotal += hamburger_moreMeat_price;
+                        dontExtraMeat = true;
+                    }
+                } else {
+                    if (dontExtraMeat) {
+                        hamTotal -= hamburger_moreMeat_price;
+                        dontExtraMeat = false;
+                    }
+                }
+                total.setText(String.valueOf(hamTotal));
+            }
+        });
+
+        Hamburger_checkbox_moreCheese.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    if (!dontExtraCheese) {
+                        hamTotal += hamburger_moreCheese_price;
+                        dontExtraCheese = true;
+                    }
+                } else {
+                    if (dontExtraCheese) {
+                        hamTotal -= hamburger_moreCheese_price;
+                        dontExtraCheese = false;
+                    }
+                }
+                total.setText(String.valueOf(hamTotal));
+            }
+        });
+
+    }
+    //
+    private int checkRButtonAndReturnBanhMiPrice(RadioGroup radioGroup)
+    {
+        int checked = radioGroup.getCheckedRadioButtonId();
+        switch (checked)
+        {
+            case R.id.omeletteBreadRBtn:
+                return 25000;
+            case R.id.cheeseBreadRBtn:
+                return 50000;
+            case R.id.fishBallBreadRBtn:
+                return 30000;
+        }
+        return 0;
+    }
+    int hamTotal = 0;
+    double hamPrice = 45000;
+    int hamburger_moreMeat_price = 35000;
+    int hamburger_moreEggs_price = 25000;
+    int hamburger_moreCheese_price = 15000;
+
+    private void resetHamCheckBox() {
+        Hamburger_checkbox_moreMeat.setChecked(false);
+        Hamburger_checkbox_moreEggs.setChecked(false);
+        Hamburger_checkbox_moreCheese.setChecked(false);
+    }
+
+    private void reduceMoneyAfterResetHamCheckBox() {
+        if (Hamburger_checkbox_moreMeat.isChecked())
+            hamTotal -= hamburger_moreMeat_price;
+        if (Hamburger_checkbox_moreEggs.isChecked())
+            hamTotal -= hamburger_moreEggs_price;
+        if (Hamburger_checkbox_moreCheese.isChecked())
+            hamTotal -= hamburger_moreCheese_price;
+        total.setText(String.format("%1$,.0f",hamTotal));
+    }
+
+    boolean dontExtraMeat = false;
+    boolean dontExtraEggs = false;
+    boolean dontExtraCheese = false;
+
+    private void hamburger_checbox_moreEggs_setOnCheckedChangeListener() {
+        Hamburger_checkbox_moreEggs.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    if (!dontExtraEggs) {
+                        hamTotal += hamburger_moreEggs_price;
+                        dontExtraEggs = true;
+                    }
+                } else {
+                    if (dontExtraEggs) {
+                        hamTotal -= hamburger_moreEggs_price;
+                        dontExtraEggs = false;
+                    }
+                }
+                total.setText(String.valueOf(hamTotal));
             }
         });
     }
-    //
-    private void pizzaClicked(View v, int type) {
-        int pizzaPrice = 125;
-        if (((CheckBox) v).isChecked()) {
-          switch (type)
-          {
-              case 2:
-                  pizzaPrice += 10;
-                  break;
-              case 3:
-                  pizzaPrice += 20;
-          }
-        }
-        total.setText(String.valueOf(pizzaPrice));
+
+    private void hamburger_checbox_moreMeat_setOnCheckedChangeListener() {
+        Hamburger_checkbox_moreMeat.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    if (!dontExtraMeat) {
+                        hamTotal += hamburger_moreMeat_price;
+                        dontExtraMeat = true;
+                    }
+                } else {
+                    if (dontExtraMeat) {
+                        hamTotal -= hamburger_moreMeat_price;
+                        dontExtraMeat = false;
+                    }
+                }
+                total.setText(String.valueOf(hamTotal));
+            }
+        });
     }
+
+    private void hamburger_checbox_moreCheese_setOnCheckedChangeListener() {
+        Hamburger_checkbox_moreCheese.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    if (!dontExtraCheese) {
+                        hamTotal += hamburger_moreCheese_price;
+                        dontExtraCheese = true;
+                    }
+                } else {
+                    if (dontExtraCheese) {
+                        hamTotal -= hamburger_moreCheese_price;
+                        dontExtraCheese = false;
+                    }
+                }
+                total.setText(String.valueOf(hamTotal));
+            }
+        });
+    }
+
 }

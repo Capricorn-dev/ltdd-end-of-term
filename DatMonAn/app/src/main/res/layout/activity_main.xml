@@ -17,64 +17,46 @@
    <TextView
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
-       android:text="Pizza"
+       android:text="Bánh mì"
        android:textSize="25sp"
        android:textAlignment="textStart"
        android:textColor="#F000"/>
    <FrameLayout
        android:background="@android:color/darker_gray"
        android:layout_width="match_parent"
-       android:layout_height="170dp">
-      <LinearLayout
-          android:layout_marginLeft="15dp"
+       android:layout_height="wrap_content">
+      <RadioGroup
+          android:id="@+id/banhMiRGroup"
+          android:layout_gravity="left"
+          android:layout_marginRight="15dp"
           android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:orientation="vertical">
-         <CheckBox
-             android:id="@+id/oneCheese"
+          android:layout_height="wrap_content">
+         <RadioButton
+             android:id="@+id/omeletteBreadRBtn"
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
-             android:text="Thêm phô mai"
+             android:text="Bánh mì ốp la"
+             android:checked="true"
              android:textSize="20sp"/>
-         <CheckBox
-             android:id="@+id/twoCheese"
+         <RadioButton
+             android:id="@+id/cheeseBreadRBtn"
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
-             android:text="Gấp 2 phô mai"
+             android:text="Bánh mì phô mai thịt nguội"
              android:textSize="20sp"/>
-         <CheckBox
-             android:id="@+id/threeCheese"
+         <RadioButton
+             android:id="@+id/fishBallBreadRBtn"
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
-             android:text="Gấp 3 phô mai"
+             android:text="Bánh mì chả cá"
              android:textSize="20sp"/>
-      </LinearLayout>
+      </RadioGroup>
 
-         <RadioGroup
-             android:layout_gravity="right"
-             android:layout_marginRight="15dp"
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content">
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Đế mỏng"
-                android:textSize="20sp"/>
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Đế dày"
-                android:textSize="20sp"/>
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Đế truyền thống"
-                android:textSize="20sp"/>
-         </RadioGroup>
+
 
       <LinearLayout
           android:layout_marginLeft="15dp"
-          android:layout_gravity="bottom|left"
+          android:layout_gravity="right"
           android:layout_width="wrap_content"
           android:layout_height="50dp"
           android:orientation="vertical">
@@ -89,14 +71,14 @@
              android:layout_height="match_parent"
              android:orientation="horizontal">
             <Button
-                android:id="@+id/buttonGiamPizza"
+                android:id="@+id/buttonGiamBanhMi"
                 android:layout_width="20dp"
                 android:layout_height="wrap_content"
                 android:text="-"
                 android:textSize="20sp"
                 android:background="#F00"/>
             <TextView
-                android:id="@+id/pizzaAmount"
+                android:id="@+id/banhMiAmount"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
@@ -104,7 +86,7 @@
                 android:textColor="#F000"
                 android:text="0"/>
             <Button
-                android:id="@+id/buttoTangPizza"
+                android:id="@+id/buttonTangBanhMi"
                 android:layout_width="20dp"
                 android:layout_height="wrap_content"
                 android:text="+"
@@ -112,23 +94,6 @@
                 android:background="#03fc07"/>
          </LinearLayout>
       </LinearLayout>
-      <RadioGroup
-       android:layout_marginRight="78dp"
-       android:layout_gravity="right|bottom"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:orientation="vertical">
-      <RadioButton
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:text="Đế mỏng"
-          android:textSize="20sp"/>
-      <RadioButton
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:text="Đế dày"
-          android:textSize="20sp"/>
-   </RadioGroup>
    </FrameLayout>
 
    <TextView
@@ -148,19 +113,22 @@
           android:layout_height="wrap_content"
           android:orientation="vertical">
          <CheckBox
+             android:id="@+id/Hamburger_checkbox_moreCheese"
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
              android:text="Thêm phô mai"
              android:textSize="20sp"/>
          <CheckBox
+             android:id="@+id/Hamburger_checkbox_moreEggs"
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
-             android:text="Gấp 2 phô mai"
+             android:text="Thêm thịt bò"
              android:textSize="20sp"/>
          <CheckBox
+             android:id="@+id/Hamburger_checkbox_moreMeat"
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
-             android:text="Gấp 3 phô mai"
+             android:text="Thêm trứng ốp la"
              android:textSize="20sp"/>
       </LinearLayout>
 
@@ -224,22 +192,44 @@
           android:layout_width="match_parent"
           android:layout_height="wrap_content"/>
    </LinearLayout>
-   <TextView
+   <FrameLayout
        android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-       android:textAlignment="textEnd"
-       android:textSize="25sp"
-       android:textColor="#F000"
-       android:text="Giảm giá: "/>
-   <TextView
-       android:id="@+id/total"
-       android:layout_marginTop="10dp"
+       android:layout_height="wrap_content">
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:textSize="25sp"
+          android:textColor="#F000"
+          android:text="Giảm giá: "/>
+      <TextView
+          android:layout_gravity="right"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:textSize="25sp"
+          android:textColor="#F000"
+          android:text="0"/>
+   </FrameLayout>
+
+   <FrameLayout
        android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-       android:textAlignment="textEnd"
-       android:textSize="25sp"
-       android:textColor="#F000"
-       android:text="Tổng tiền: "/>
+       android:layout_height="wrap_content">
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:textAlignment="textEnd"
+          android:textSize="25sp"
+          android:textColor="#F000"
+          android:text="Tổng tiền: "/>
+      <TextView
+          android:id="@+id/total"
+          android:layout_gravity="right"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:textSize="25sp"
+          android:textColor="#F000"
+          android:text="0"/>
+   </FrameLayout>
+
    <TableLayout
        android:layout_width="match_parent"
        android:layout_height="wrap_content"

@@ -101,16 +101,19 @@ public class MainActivity extends AppCompatActivity {
                     resultTwoSecondLine = resultTwoSecondLine.setScale(5, RoundingMode.CEILING); //Làm tròn celi
                 }
                 //Result In Banner
-                resultInBanner.setText(String.valueOf(intCurIn) + " " + inputString + " to " +
+//                resultInBanner.setText(String.valueOf(intCurIn) + " " + inputString + " to " +
+//                        outputString + " = " + String.valueOf(resultTwoFirstLine) + " " + outputString);
+                resultInBanner.setText(String.format("%1$,.2f",intCurIn) + " " + inputString + " to " +
                         outputString + " = " + String.valueOf(resultTwoFirstLine) + " " + outputString);
+
                 //Main result
                 Log.d("Test", String.valueOf(resultTwoFirstLine));
-                currencyInputResult.setText(String.valueOf(intCurIn) + " " + inputString + " =");
+                currencyInputResult.setText(String.format("%1$,.2f",intCurIn) + " " + inputString + " =");
                 currencyOutputResult.setText(String.valueOf(resultTwoFirstLine) + " " + outputString);
                 //The second result
-                currencyAtoB.setText(String.valueOf(intCurIn) + " " + inputString + " = " +
+                currencyAtoB.setText(String.format("%1$,.2f",intCurIn) + " " + inputString + " = " +
                         String.valueOf(resultTwoFirstLine) + " " + outputString);
-                currencyBtoA.setText(String.valueOf(intCurIn) + " " + outputString + " = " +
+                currencyBtoA.setText(String.format("%1$,.2f",intCurIn) + " " + outputString + " = " +
                         String.valueOf(resultTwoSecondLine) + " " + inputString);
             }
         });

@@ -1,7 +1,7 @@
 Tiến độ bài cuối kì
 +1: Máy tính (Xong 90%)
 +2: Đăng kí (Còn Regex)
-+3: Chuyển đổi tiền tệ
++3: Chuyển đổi tiền tệ (Done)
 +4: Đặt món ăn
 +5: Tính chỉ số IBM (Done)
 +6: Cho vay tiêu dùng (Chưa tính lãi kép)

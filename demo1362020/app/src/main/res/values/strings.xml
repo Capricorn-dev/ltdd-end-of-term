@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">demo1362020</string>
+    <string-array name="laiXuatMongMuon">
+        <item>Chọn lãi xuất mong muốn</item>
+        <item>16%</item>
+        <item>17%</item>
+        <item>18%</item>
+    </string-array>
+</resources>
